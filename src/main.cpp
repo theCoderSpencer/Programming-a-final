@@ -11,6 +11,7 @@ int main() {
  
   return(0);
 }
+
 /*
 rules:
   make a random number from 16-32 and multiply it by number of players
@@ -18,12 +19,12 @@ rules:
     jack = 11
     queen = 12
     king = 13
-    ace = 1 or 14 (decide when played)
+    ace = 1 or 14 (decide when card played)
   round starts:
     all players draw to a hand size of 4
     each player takes a turn
   on turn:
-    pass, play a card, or steal a random card from an opponent's hand (if any player has no cards in hand, end round)
+    pass (if all players pass on consecutive turns, the round ends), play a card, or steal a random card from an opponent's hand (if any player has no cards in hand, end round)
     if no player can play without the total value of played cards exeeding the random number, the round ends  
   round ends:
     the last player to play a card wins a point
