@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E9B6E5252A422A5200E627E9 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E51C2A422A5200E627E9 /* player.cpp */; };
-		E9B6E5262A422A5200E627E9 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E51D2A422A5200E627E9 /* game.cpp */; };
-		E9B6E5272A422A5200E627E9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E51F2A422A5200E627E9 /* main.cpp */; };
-		E9B6E5282A422A5200E627E9 /* deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5222A422A5200E627E9 /* deck.cpp */; };
-		E9B6E5292A422A5200E627E9 /* card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5232A422A5200E627E9 /* card.cpp */; };
+		E9B6E53A2A4230A800E627E9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5322A4230A800E627E9 /* main.cpp */; };
+		E9B6E53B2A4230A800E627E9 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5342A4230A800E627E9 /* player.cpp */; };
+		E9B6E53C2A4230A800E627E9 /* card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5362A4230A800E627E9 /* card.cpp */; };
+		E9B6E53D2A4230A800E627E9 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5372A4230A800E627E9 /* game.cpp */; };
+		E9B6E53E2A4230A800E627E9 /* deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B6E5392A4230A800E627E9 /* deck.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,16 +27,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E9B6E5122A422A2700E627E9 /* backup */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = backup; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9B6E51C2A422A5200E627E9 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
-		E9B6E51D2A422A5200E627E9 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
-		E9B6E51E2A422A5200E627E9 /* deck.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = deck.hpp; sourceTree = "<group>"; };
-		E9B6E51F2A422A5200E627E9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E9B6E5202A422A5200E627E9 /* player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = player.hpp; sourceTree = "<group>"; };
-		E9B6E5212A422A5200E627E9 /* game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = game.hpp; sourceTree = "<group>"; };
-		E9B6E5222A422A5200E627E9 /* deck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = deck.cpp; sourceTree = "<group>"; };
-		E9B6E5232A422A5200E627E9 /* card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = card.cpp; sourceTree = "<group>"; };
-		E9B6E5242A422A5200E627E9 /* card.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = card.hpp; sourceTree = "<group>"; };
+		E9B6E5122A422A2700E627E9 /* CardGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CardGame; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B6E5322A4230A800E627E9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		E9B6E5342A4230A800E627E9 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = player.cpp; path = src/player.cpp; sourceTree = "<group>"; };
+		E9B6E5362A4230A800E627E9 /* card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = card.cpp; path = src/card.cpp; sourceTree = "<group>"; };
+		E9B6E5372A4230A800E627E9 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game.cpp; path = src/game.cpp; sourceTree = "<group>"; };
+		E9B6E5392A4230A800E627E9 /* deck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = deck.cpp; path = src/deck.cpp; sourceTree = "<group>"; };
+		E9B6E5422A42310300E627E9 /* deck.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = deck.hpp; path = include/deck.hpp; sourceTree = "<group>"; };
+		E9B6E5432A42310300E627E9 /* game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = game.hpp; path = include/game.hpp; sourceTree = "<group>"; };
+		E9B6E5442A42310300E627E9 /* card.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = card.hpp; path = include/card.hpp; sourceTree = "<group>"; };
+		E9B6E5452A42310300E627E9 /* player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = player.hpp; path = include/player.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 		E9B6E5092A422A2700E627E9 = {
 			isa = PBXGroup;
 			children = (
-				E9B6E52B2A422A7100E627E9 /* Includes */,
-				E9B6E52A2A422A6100E627E9 /* Source */,
+				E9B6E5412A4230F400E627E9 /* include */,
+				E9B6E5462A42310900E627E9 /* src */,
 				E9B6E5132A422A2700E627E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,40 +62,40 @@
 		E9B6E5132A422A2700E627E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9B6E5122A422A2700E627E9 /* backup */,
+				E9B6E5122A422A2700E627E9 /* CardGame */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9B6E52A2A422A6100E627E9 /* Source */ = {
+		E9B6E5412A4230F400E627E9 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				E9B6E5232A422A5200E627E9 /* card.cpp */,
-				E9B6E5222A422A5200E627E9 /* deck.cpp */,
-				E9B6E51D2A422A5200E627E9 /* game.cpp */,
-				E9B6E51F2A422A5200E627E9 /* main.cpp */,
-				E9B6E51C2A422A5200E627E9 /* player.cpp */,
+				E9B6E5442A42310300E627E9 /* card.hpp */,
+				E9B6E5422A42310300E627E9 /* deck.hpp */,
+				E9B6E5432A42310300E627E9 /* game.hpp */,
+				E9B6E5452A42310300E627E9 /* player.hpp */,
 			);
-			path = Source;
+			name = include;
 			sourceTree = "<group>";
 		};
-		E9B6E52B2A422A7100E627E9 /* Includes */ = {
+		E9B6E5462A42310900E627E9 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				E9B6E5242A422A5200E627E9 /* card.hpp */,
-				E9B6E51E2A422A5200E627E9 /* deck.hpp */,
-				E9B6E5212A422A5200E627E9 /* game.hpp */,
-				E9B6E5202A422A5200E627E9 /* player.hpp */,
+				E9B6E5362A4230A800E627E9 /* card.cpp */,
+				E9B6E5392A4230A800E627E9 /* deck.cpp */,
+				E9B6E5372A4230A800E627E9 /* game.cpp */,
+				E9B6E5322A4230A800E627E9 /* main.cpp */,
+				E9B6E5342A4230A800E627E9 /* player.cpp */,
 			);
-			path = Includes;
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E9B6E5112A422A2700E627E9 /* backup */ = {
+		E9B6E5112A422A2700E627E9 /* CardGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9B6E5192A422A2700E627E9 /* Build configuration list for PBXNativeTarget "backup" */;
+			buildConfigurationList = E9B6E5192A422A2700E627E9 /* Build configuration list for PBXNativeTarget "CardGame" */;
 			buildPhases = (
 				E9B6E50E2A422A2700E627E9 /* Sources */,
 				E9B6E50F2A422A2700E627E9 /* Frameworks */,
@@ -105,9 +105,9 @@
 			);
 			dependencies = (
 			);
-			name = backup;
+			name = CardGame;
 			productName = backup;
-			productReference = E9B6E5122A422A2700E627E9 /* backup */;
+			productReference = E9B6E5122A422A2700E627E9 /* CardGame */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -124,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E9B6E50D2A422A2700E627E9 /* Build configuration list for PBXProject "backup" */;
+			buildConfigurationList = E9B6E50D2A422A2700E627E9 /* Build configuration list for PBXProject "CardGame" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -137,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9B6E5112A422A2700E627E9 /* backup */,
+				E9B6E5112A422A2700E627E9 /* CardGame */,
 			);
 		};
 /* End PBXProject section */
@@ -147,11 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B6E5282A422A5200E627E9 /* deck.cpp in Sources */,
-				E9B6E5252A422A5200E627E9 /* player.cpp in Sources */,
-				E9B6E5262A422A5200E627E9 /* game.cpp in Sources */,
-				E9B6E5292A422A5200E627E9 /* card.cpp in Sources */,
-				E9B6E5272A422A5200E627E9 /* main.cpp in Sources */,
+				E9B6E53B2A4230A800E627E9 /* player.cpp in Sources */,
+				E9B6E53A2A4230A800E627E9 /* main.cpp in Sources */,
+				E9B6E53C2A4230A800E627E9 /* card.cpp in Sources */,
+				E9B6E53E2A4230A800E627E9 /* deck.cpp in Sources */,
+				E9B6E53D2A4230A800E627E9 /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +290,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9B6E50D2A422A2700E627E9 /* Build configuration list for PBXProject "backup" */ = {
+		E9B6E50D2A422A2700E627E9 /* Build configuration list for PBXProject "CardGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9B6E5172A422A2700E627E9 /* Debug */,
@@ -299,7 +299,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9B6E5192A422A2700E627E9 /* Build configuration list for PBXNativeTarget "backup" */ = {
+		E9B6E5192A422A2700E627E9 /* Build configuration list for PBXNativeTarget "CardGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9B6E51A2A422A2700E627E9 /* Debug */,

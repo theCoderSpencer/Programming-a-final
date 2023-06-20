@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include <ctype.h>
 using namespace std;
 
 constexpr size_t kLineSize = 100;
@@ -7,6 +8,32 @@ ssize_t GetInput( char where[kLineSize] )\
     char * theLine = where;
     size_t lineSize = kLineSize;
     return getline(&theLine, &lineSize, stdin); //FIXME: 100+ characters in an input line crashes
+}
+
+static inline int CharToInteger( char c )
+{
+    assert( isdigit(c));    // make sure it is betwwen '0' and '9'
+    return c - '0';
+}
+
+static inline int StringToInteger( const char * string, bool &success)
+{
+    char * endP = const_cast<char*>(string);
+    long result = 0;
+    
+    if( NULL == string)
+        goto fail;
+    
+    result = strtol( string, &endP, 10);
+    if( endP == string)
+        goto fail;
+
+    success = true;
+    return (int) result;
+    
+fail:
+    success = false;
+    return 0;
 }
 
 bool PlayArea::ChooseCardPlay() {
@@ -26,20 +53,21 @@ bool PlayArea::ChooseCardPlay() {
         GetInput(inputLine);
         choice = 0;
         if (inputLine[0] == 'x') {return false;}
-        //cout << "in[0]" << (int)inputLine[0] << endl;
-        for (i = 0;i<kLineSize;i++) {
-            if ((inputLine[i] == '\0')||(inputLine[i] == '\n'))
-                break;
-            for (int c =0;c<=9;/*cout << "c: "<<(char)(48+*/c++/*)*/)
-                if (inputLine[i] == (char)(c+48)) {
-                    inToOutLine[i] = (int)inputLine[i]-48;
-                    
-                    break;
-                }
+        
+        bool succeeded = false;
+        choice = StringToInteger( inputLine, succeeded);
+        if( ! succeeded )
+        {
+            cout << "Could not parse \"" << inputLine << "\"\n";
+            continue;
         }
-        for (int i2 = 0;i2 < i;i2++) {
-            choice += inToOutLine[i2]*pow((double)10.0, (int)(i-i2-1));
+        
+        if( choice <= 0 || choice > player.hand.length)
+        {
+            cout << "Choice too big/small for hand size. Try again.\n";
+            continue;
         }
+        
         //cout << "choice: " << choice << endl;
         // cout << (int)inputLine[0];
         if ((player.hand[choice-1].number+goalProgress > goal))
@@ -196,18 +224,21 @@ bool PlayArea::OpponentTurn() { //FIXME: what happens when opponent has no cards
 }
 
 void PlayArea::StartRound() {
-    
+
+    goal = (16+arc4random_uniform(16+1))*playerCount;//MARK: use rand() for debuging
+    goalProgress = 0;
+
     // Draw 4 cards
     constexpr int InitialHandSize = 4;
     
     for (int i = player.hand.length;i < InitialHandSize; i++)
         player.DrawCard(deck);
-    
+
+    printf("\n\nPlayer's hand:\n");
+    player.PrintHand();
+
     for (int i = opponent.hand.length;i < InitialHandSize; i++)
         opponent.DrawCard(deck);
-    goal = (16+arc4random_uniform(16+1))*playerCount;//MARK: use rand() for debuging
-    goalProgress = 0;
-    
     
 }
 
@@ -216,8 +247,6 @@ void PlayArea::StartGame() {
     deck.Fill();
     deck.Shuffle();
     playerCount = 2;
-    printf("\n\nPlayer's hand:\n");
-    player.PrintHand();
     
 }
 
