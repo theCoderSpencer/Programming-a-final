@@ -33,4 +33,4 @@
 
 .vscode
 .DS_Store
-CardGame.xcodeproj/xcuserdata
+*xcuserdata

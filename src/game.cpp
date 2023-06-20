@@ -38,7 +38,7 @@ fail:
 
 bool PlayArea::ChooseCardPlay() {
     char inputLine[kLineSize];
-    int choice=0,inToOutLine[kLineSize]={0},i=0;
+    int choice=0;
     //    for (int i = 0; i < player.hand.length;i++) {
     //
     //    }
