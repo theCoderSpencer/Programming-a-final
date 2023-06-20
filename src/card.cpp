@@ -1,6 +1,7 @@
 
-#include "../include/card.hpp"
+#include "card.hpp"
 
+const Card Card::NullCard;
 
 const char *Card::GetName() const {
   static const char *faces[13] = {"2", "3",  "4",    "5",     "6",    "7",  "8",

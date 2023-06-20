@@ -1,22 +1,35 @@
-#include "game.hpp"
+#include "player.hpp"
 
-int main()
+
+void Player::DrawCard(Deck & deck)
 {
-    PlayArea playArea;
-    
-    playArea.StartGame();
-    bool endRound;
-    do  {
-        playArea.StartRound();
-        do {
+    /*for (int i = 0;i < deck.GetDeckSize();i++) {
+        if( deck[i] != NULLCARD)
+        {
+            // Move the card from the deck to the hand
+            hand[handSize++] = deck[i];
             
-            playArea.StartTurn();
-            endRound = playArea.OpponentTurn();
-        }while(false == endRound);
-    }while (playArea.EndRound());
-    std::cout << std::endl << "---Game Over---" << std::endl << std::endl;
-    return(0);
+            // Remove the card from the deck
+            deck[i] = NULLCARD;
+            return;
+        }
+    }*/
+    if (deck.length >= 1) {
+        hand[hand.length++] = deck[deck.length-1];
+        deck[deck.length-1] = NULLCARD;
+        deck.length--;
+    }
+    else
+        std::cout << "<Deck to draw from is too small>" << std::endl; //assert(deck.length >= 1);
+    //printf("\n<Card Draw Error>\n");
 }
+
+void Player::PrintHand()
+{
+    hand.Print();
+}
+
+
 
 /*
  rules:

@@ -5,27 +5,39 @@ example include file
 #ifdef __cplusplus 
 #include <iostream>
 #include <stdexcept>
+#define NULLCARD Card::NullCard
+#define UNUSED __attribute__ ((__unused__))
+
+
+typedef enum : uint8_t
+{
+    kCardPropertyNone   = 0,
+    kCardPropertyStolen,
+}CardProperty;
 
 class Card
 {
-  protected:
     friend class Deck;
-    Card(){}
+
 
   public:
-    int number,suit;
-    Card(int _suit, int _number) {Initialize(_suit, _number); }
-    Card( const Card & card){number = card.number; suit = card.suit;}
-    inline Card & Initialize(int _suit, int _number){ suit = _suit; number = _number; return *this;}
-
+    static const Card NullCard;
+    
+    uint8_t number,suit;
+    CardProperty property;
+    
+    Card() : Card(0,0){}
+    Card(int _suit, int _number) : property(kCardPropertyNone) {suit = _suit; number = _number;}
+    
     const char * GetName() const;
     const char * GetSuit() const;
 
     void Print() const;
 
     // Formerly CardMatchCheck
-    inline bool operator==(const Card & card2) const{ return number == card2.number && 
-                                                             suit   == card2.suit; }
+    // CAUTION NULLCARD == NULLCARD is true
+    inline bool operator==(const Card & card2) const{ return number == card2.number && suit == card2.suit; }
+    
 };
 
 extern "C" {
