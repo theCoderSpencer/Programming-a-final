@@ -39,9 +39,6 @@ fail:
 bool PlayArea::ChooseCardPlay() {
     char inputLine[kLineSize];
     int choice=0;
-    //    for (int i = 0; i < player.hand.length;i++) {
-    //
-    //    }
     cout << endl << "Enter 'x' to go back. Your Hand: " << endl;
     
     for (int i = 0; i< player.hand.length;i++)
@@ -68,11 +65,18 @@ bool PlayArea::ChooseCardPlay() {
             continue;
         }
         
-        //cout << "choice: " << choice << endl;
-        // cout << (int)inputLine[0];
-        if ((player.hand[choice-1].number+goalProgress > goal))
-            cout << "This card cannot be played now; the sum of played card values would exceed the goal" << endl;
-        else
+        if ((player.hand[choice-1].number+goalProgress > goal)) {
+            if (14 != player.hand[choice-1].number) {
+                cout << "This card cannot be played now; the sum of played card values would exceed the goal" << endl;
+                break;
+            }
+            else {
+                if ((goalProgress+1 <= goal) and (goalProgress+14 > goal)) {
+                    player.hand[choice-1].number = 1;
+                    cout << "Ace played for 1 point" << endl;
+                }
+            }
+        }
             if (((choice > 0) and (choice <= player.hand.length)) and (player.hand[choice-1] != NULLCARD)) {
                 PlayCard(player.hand[choice-1]);
                 player.hand[choice-1] = player.hand[player.hand.length-1];
@@ -104,11 +108,14 @@ bool PlayArea::EndRound() {
                 player.hand.length--;
                 i--;
             }
-            player.hand[i] = player.hand[player.hand.length-1];//FIXME: 1 stolen card in hand might be a problem
-            player.hand[player.hand.length-1] = NULLCARD;
-            player.hand.length--;
+            if (player.hand.length >= 2) {
+                player.hand[i] = player.hand[player.hand.length-1];//FIXME: 1 stolen card in hand might be a problem
+                player.hand[player.hand.length-1] = NULLCARD;
+                player.hand.length--;
+            }
         }
     }
+    
     if (deck.length < 8) {
         if (player.points > opponent.points) {
             cout << "You win with " << player.points << " points" << endl;
@@ -184,14 +191,16 @@ void PlayArea::StartTurn() {
     }
 }
 
-bool PlayArea::OpponentTurn() { //FIXME: what happens when opponent has no cards?
+bool PlayArea::OpponentTurn() { 
     if (goalProgress == goal)
         return true;
     cout << "Opponent's Turn.." << endl;
     for (int i = 0; i < opponent.hand.length;i++) {
         if (((opponent.hand[i].number > 4)or(goal-goalProgress <= 4))and(opponent.hand[i] != NULLCARD)) {
-            if (opponent.hand[i].number <= abs(goalProgress-goal)) { //opponent plays a card TODO: aces can = 1 value
+            if (opponent.hand[i].number <= abs(goalProgress-goal) or (opponent.hand[i].number == 14)) { //opponent plays a card
                 passed = false;
+                if (opponent.hand[i].number == 14 and goalProgress+14 > goal)
+                    opponent.hand[i].number = 1;
                 PlayCard(opponent.hand[i]);
                 opponent.hand[i] = opponent.hand[opponent.hand.length-1];
                 opponent.hand[opponent.hand.length-1] = NULLCARD;
@@ -204,7 +213,7 @@ bool PlayArea::OpponentTurn() { //FIXME: what happens when opponent has no cards
             }
         }
     }
-    if (player.hand.length > 1) { //opponent steals a card TODO: not random drawing
+    if (player.hand.length > 1) { //opponent steals a card TODO: random drawing
         passed = false;
         opponent.DrawCard(player.hand);
         opponent.hand.cards[opponent.hand.length-1].property = kCardPropertyStolen;
@@ -225,7 +234,7 @@ bool PlayArea::OpponentTurn() { //FIXME: what happens when opponent has no cards
 
 void PlayArea::StartRound() {
 
-    goal = (16+arc4random_uniform(16+1))*playerCount;//MARK: use rand() for debuging
+    goal = (16+arc4random_uniform(16+1))*playerCount;// use rand() for debuging
     goalProgress = 0;
 
     // Draw 4 cards
