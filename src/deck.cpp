@@ -28,8 +28,8 @@ void Deck::Print() const
 
 void Deck::Shuffle() {
     for (int c = 0; c < 1000; c++) {
-        int card1 = arc4random_uniform(52);
-        int card2 = arc4random_uniform(52);
+        int card1 = arc4random_uniform(length);
+        int card2 = arc4random_uniform(length);
         if ((cards[card1] == NULLCARD || cards[card2] == NULLCARD) != true)
         {
             Card temp;

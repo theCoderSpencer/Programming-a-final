@@ -109,7 +109,7 @@ bool PlayArea::EndRound() {
                 i--;
             }
             if (player.hand.length >= 2) {
-                player.hand[i] = player.hand[player.hand.length-1];//FIXME: 1 stolen card in hand might be a problem
+                player.hand[i] = player.hand[player.hand.length-1];
                 player.hand[player.hand.length-1] = NULLCARD;
                 player.hand.length--;
             }
@@ -171,6 +171,7 @@ void PlayArea::StartTurn() {
             case 's':
                 if (opponent.hand.length > 0) {
                     cout << "Stealing Card.." << endl;
+                    opponent.hand.Shuffle();
                     player.DrawCard(opponent.hand);
                     player.hand.cards[player.hand.length-1].property = kCardPropertyStolen;
                     cout << "Stolen Card: " << player.hand.cards[player.hand.length-1].GetName() << " of " << player.hand.cards[player.hand.length-1].GetSuit() << endl;
@@ -215,6 +216,7 @@ bool PlayArea::OpponentTurn() {
     }
     if (player.hand.length > 1) { //opponent steals a card TODO: random drawing
         passed = false;
+        player.hand.Shuffle();
         opponent.DrawCard(player.hand);
         opponent.hand.cards[opponent.hand.length-1].property = kCardPropertyStolen;
         cout << "Stolen Card: " << opponent.hand.cards[opponent.hand.length-1].GetName() << " of " << opponent.hand.cards[opponent.hand.length-1].GetSuit() << endl;
